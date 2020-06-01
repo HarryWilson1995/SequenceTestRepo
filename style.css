@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#gameHeading {
+  color: green;
+  font-size: 100px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#deck {
+  display: flex;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.shuffleBtn {
+  width: 500px;
+  height: 200px;
+  background-color: green;
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+/* Remember this for when you start styling in game */
+
+/* img {
+  margin-left: -50px;
+} */
+
+img {
+  margin-top: 5rem;
+}
