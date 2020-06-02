@@ -28,6 +28,7 @@ const setArea = document.querySelector('.setsArea');
 // Also probably need winning combo arrays
 // Functionality to select multiple cards and put them down
 // Ability to reorder cards in hand
+// Maybe on click have the cards stick up as they do on hover, or hover + have a border, then keep clicking until you have a set which you may drag over if they match up with a combo in winning combinations
 
 let deck1 = getDeck();
 renderDeck(deck1);
