@@ -23,7 +23,7 @@
 
 .shuffleBtn,
 .dealBtn,
-.clearHandBtn,
+.clearGameBtn,
 .pickUpBtn,
 .buyBtn {
   width: 400px;
@@ -67,10 +67,15 @@ header {
   padding: 1rem;
 }
 
+/* Cards area */
+.gamePlayCardArea {
+  display: flex;
+}
+
 /* Player hand */
 .myHand {
   height: 250px;
-  width: 1500px;
+  width: 1200px;
   margin: auto;
   border: 1px dotted black;
   display: flex;
@@ -83,11 +88,19 @@ header {
 
 .inHand {
   margin-top: 0;
-  margin-left: -50px;
+  margin-left: -75px;
 }
 
 /* coin count */
 #coinCount {
   font-size: 20px;
   color: green;
+}
+
+/* set Area */
+.setsArea {
+  height: 250px;
+  width: 500px;
+  border: 1px dotted black;
+  display: flex;
 }

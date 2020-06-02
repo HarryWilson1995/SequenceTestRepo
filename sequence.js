@@ -18,12 +18,16 @@ const values = [
 const shuffleBtn = document.querySelector('.shuffleBtn');
 const dealBtn = document.querySelector('.dealBtn');
 const myHand = document.querySelector('.myHand');
-const clearHandBtn = document.querySelector('.clearHandBtn');
+const clearGameBtn = document.querySelector('.clearGameBtn');
 const pickUpBtn = document.querySelector('.pickUpBtn');
 const buyBtn = document.querySelector('.buyBtn');
 const coinCountSring = document.getElementById('coinCount');
+const setArea = document.querySelector('.setsArea');
 // I think we need const userHand = [] to be created in a function based on the number of players we have. We also need each user to have an area where they can place cards
 // An array or class for each play surface area
+// Also probably need winning combo arrays
+// Functionality to select multiple cards and put them down
+// Ability to reorder cards in hand
 
 let deck1 = getDeck();
 renderDeck(deck1);
@@ -37,8 +41,9 @@ dealBtn.addEventListener('click', function () {
   dealHand(deck1, 10);
 });
 
-clearHandBtn.addEventListener('click', function () {
+clearGameBtn.addEventListener('click', function () {
   clearHand(myHand);
+  clearHand(setArea);
 });
 
 pickUpBtn.addEventListener('click', function () {
@@ -133,8 +138,13 @@ function dealHand(deck, cardNumber) {
     image.addEventListener('mouseleave', (e) => {
       e.target.style.marginTop = '0';
     });
+    // image.addEventListener('click', (e) => {
+    //   myHand.removeChild(e.target);
+    // });
     image.addEventListener('click', (e) => {
-      myHand.removeChild(e.target);
+      let card = e.target;
+      myHand.removeChild(card);
+      setArea.appendChild(card);
     });
 
     // card.appendChild(image);
