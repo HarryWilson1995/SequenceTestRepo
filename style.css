@@ -6,7 +6,7 @@
 
 #gameHeading {
   color: green;
-  font-size: 100px;
+  font-size: 50px;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -21,7 +21,9 @@
   justify-content: space-around;
 }
 
-.shuffleBtn {
+.shuffleBtn,
+.dealBtn,
+.clearHandBtn {
   width: 500px;
   height: 200px;
   background-color: green;
@@ -38,4 +40,46 @@
 
 img {
   margin-top: 5rem;
+  cursor: pointer;
+}
+
+/* navbar */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: black;
+}
+
+header {
+  padding: 1rem;
+}
+
+.options {
+  color: green;
+  font-size: 50px;
+  display: flex;
+}
+
+.options a {
+  padding: 1rem;
+}
+
+/* Player hand */
+.myHand {
+  height: 250px;
+  width: 1000px;
+  margin: auto;
+  border: 1px dotted black;
+  display: flex;
+  flex-direction: row;
+}
+
+.inHand:first-child {
+  margin-left: 15%;
+}
+
+.inHand {
+  margin-top: 0;
+  margin-left: -100px;
 }

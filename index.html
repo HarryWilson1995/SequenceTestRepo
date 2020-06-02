@@ -7,11 +7,25 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 id="gameHeading">Sequence</h1>
+    <nav>
+      <header>
+        <h1 id="gameHeading">Sequence</h1>
+      </header>
+      <div class="options">
+        <a>Rules</a>
+        <a>Stats</a>
+        <a>New Game</a>
+        <a>Leave Game</a>
+      </div>
+    </nav>
     <div id="deck"></div>
     <div class="btnContainer">
       <button class="shuffleBtn">Shuffle Deck</button>
+      <button class="dealBtn">Deal Cards</button>
+      <button class="clearHandBtn">Clear Hand</button>
     </div>
+
+    <div class="myHand"></div>
     <script src="./sequence.js"></script>
   </body>
 </html>
