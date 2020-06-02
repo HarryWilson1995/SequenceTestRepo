@@ -1,4 +1,5 @@
 const suits = ['S', 'D', 'C', 'H'];
+let coinCount = 10;
 const values = [
   'A',
   '2',
@@ -18,6 +19,11 @@ const shuffleBtn = document.querySelector('.shuffleBtn');
 const dealBtn = document.querySelector('.dealBtn');
 const myHand = document.querySelector('.myHand');
 const clearHandBtn = document.querySelector('.clearHandBtn');
+const pickUpBtn = document.querySelector('.pickUpBtn');
+const buyBtn = document.querySelector('.buyBtn');
+const coinCountSring = document.getElementById('coinCount');
+// I think we need const userHand = [] to be created in a function based on the number of players we have. We also need each user to have an area where they can place cards
+// An array or class for each play surface area
 
 let deck1 = getDeck();
 renderDeck(deck1);
@@ -28,12 +34,27 @@ shuffleBtn.addEventListener('click', function () {
 });
 
 dealBtn.addEventListener('click', function () {
-  dealHand(deck1);
+  dealHand(deck1, 10);
 });
 
 clearHandBtn.addEventListener('click', function () {
   clearHand(myHand);
 });
+
+pickUpBtn.addEventListener('click', function () {
+  dealHand(deck1, 1);
+});
+
+buyBtn.addEventListener('click', () => {
+  if (coinCount > 0) {
+    dealHand(deck1, 2);
+    coinCount -= 1;
+    coinCountSring.textContent = `My Coins: ${coinCount.toString()}`;
+    console.log(coinCount);
+  }
+});
+
+coinCountSring.textContent = `My Coins: ${coinCount.toString()}`;
 
 function getDeck() {
   let deck = new Array();
@@ -93,29 +114,32 @@ function renderDeck(deck) {
   }
 }
 
-function dealHand(deck) {
+function dealHand(deck, cardNumber) {
   let hand = [];
-  if (myHand.childElementCount === 0) {
-    for (let i = 0; i < 10; i++) {
-      let random = deck[Math.floor(Math.random() * deck.length)];
-      hand.push(random);
-      let image = document.createElement('img');
-      // let card = document.createElement('div');
-      image.classList.add(`${hand[i].Value}${hand[i].Suit}`);
-      image.classList.add('inHand');
-      image.width = '157';
-      image.height = '240';
-      image.src = hand[i].Source;
-      image.addEventListener('mouseover', (e) => {
-        e.target.style.marginTop = '-50px';
-      });
-      image.addEventListener('mouseleave', (e) => {
-        e.target.style.marginTop = '0';
-      });
+  // if (myHand.childElementCount === 0) {
+  for (let i = 0; i < cardNumber; i++) {
+    let random = deck[Math.floor(Math.random() * deck.length)];
+    hand.push(random);
+    let image = document.createElement('img');
+    // let card = document.createElement('div');
+    image.classList.add(`${hand[i].Value}${hand[i].Suit}`);
+    image.classList.add('inHand');
+    image.width = '157';
+    image.height = '240';
+    image.src = hand[i].Source;
+    image.addEventListener('mouseover', (e) => {
+      e.target.style.marginTop = '-50px';
+    });
+    image.addEventListener('mouseleave', (e) => {
+      e.target.style.marginTop = '0';
+    });
+    image.addEventListener('click', (e) => {
+      myHand.removeChild(e.target);
+    });
 
-      // card.appendChild(image);
-      myHand.appendChild(image);
-    }
+    // card.appendChild(image);
+    myHand.appendChild(image);
+    // }
   }
 }
 
